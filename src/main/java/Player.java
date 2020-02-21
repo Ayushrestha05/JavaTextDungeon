@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class Player {
     public static String PlayerName;
@@ -20,11 +21,12 @@ public class Player {
     Wisdom = knowing whether to put tomato in a fruit salad.
     Charisma = how many others want to throw tomatoes at you.
      */
-    public Player(String PlayerName, String PlayerRace, int PlayerHP, int PlayerMP){
-        this.PlayerName = PlayerName;
-        this.PlayerRace = PlayerRace;
-        this.PlayerHP = PlayerHP;
-        this.PlayerMP = PlayerMP;
+    Scanner input = new Scanner(System.in);
+    public void CharacterBegin(){
+        System.out.println("What is your character's name?");
+        PlayerName = input.nextLine();
+        System.out.println("Lets choose your race!");
+        selectRace();
     }
 
     public void RollAbilities(){
@@ -76,7 +78,19 @@ public class Player {
             }
         }
         System.out.println("STR,DEX,CON,INT,WIS,CHA");
-        System.out.println(PlayerSTR+","+PlayerDEX+","+PlayerCON+","+PlayerINT+PlayerWIS+PlayerCHA);
+        System.out.println(PlayerSTR+","+PlayerDEX+","+PlayerCON+","+PlayerINT+","+PlayerWIS+","+PlayerCHA);
+    }
+
+    public void selectRace(){
+        System.out.println("Dwarf");
+        System.out.println("Elf");
+        System.out.println("Halfling");
+        System.out.println("Human");
+        System.out.println("Dragonborn");
+        System.out.println("Gnome");
+        System.out.println("Half-Elf");
+        System.out.println("Half-Orc");
+        System.out.println("Tiefling");
     }
 
 }
