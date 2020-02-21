@@ -1,4 +1,5 @@
 import java.util.Random;
+import java.util.Scanner;
 
 public class Player {
     public static String PlayerName;
@@ -12,6 +13,7 @@ public class Player {
     int PlayerINT;
     int PlayerWIS;
     int PlayerCHA;
+    int XP;
     /*
     Strength = how hard one can throw a tomato.
     Dexterity = how well one can dodge a tomato.
@@ -20,63 +22,68 @@ public class Player {
     Wisdom = knowing whether to put tomato in a fruit salad.
     Charisma = how many others want to throw tomatoes at you.
      */
-    public Player(String PlayerName, String PlayerRace, int PlayerHP, int PlayerMP){
-        this.PlayerName = PlayerName;
-        this.PlayerRace = PlayerRace;
-        this.PlayerHP = PlayerHP;
-        this.PlayerMP = PlayerMP;
+    Scanner input = new Scanner(System.in);
+    public void CharacterBegin(){
+        System.out.println("What is your character's name?");
+        PlayerName = input.nextLine();
+        System.out.println("Let's choose your race!");
+        selectRace();
     }
 
-    public void RollAbilities(){
-        String Check[]={"STR","DEX","CON","INT","WIS","CHA"};
-        System.out.println("Roll to know your ability points");
-        for (int i=0;i<6;i++){
-            int R1 = DiceRoll.d6roll();
-            int R2 = DiceRoll.d6roll();
-            int R3 = DiceRoll.d6roll();
-            int R4 = DiceRoll.d6roll();
-            if(R1<R2 && R1<R3 && R1<R4){
-                R1=0;
-            }
-            if(R2<R1 && R2<R3 && R2<R4){
-                R2=0;
-            }
-            if(R3<R1 && R3<R2 && R3<R4){
-                R3=0;
-            }
-            if(R4<R1 && R4<R2 && R4<R3){
-                R4=0;
-            }
-            int AbilityPoint = R1 + R2 + R3 + R4;
-            String Ability = Check[i];
-            switch (Ability){
-                case "STR":
-                    PlayerSTR = AbilityPoint;
-                    break;
+    //Selection of race
+    public void selectRace(){
+        System.out.println("Dwarf");
+        System.out.println("Elf");
+        System.out.println("Halfling");
+        System.out.println("Human");
+        System.out.println("Dragonborn");
+        System.out.println("Gnome");
+        System.out.println("Half-Elf");
+        System.out.println("Half-Orc");
+        System.out.println("Tiefling");
+        System.out.println("");
+        System.out.println("Which race do you want to be?");
+        PlayerRace = input.nextLine();
+    }
 
-                case "DEX":
-                    PlayerDEX = AbilityPoint;
-                    break;
-
-                case "CON":
-                    PlayerCON = AbilityPoint;
-                    break;
-
-                case "INT":
-                    PlayerINT = AbilityPoint;
-                    break;
-
-                case "WIS":
-                    PlayerWIS = AbilityPoint;
-                    break;
-
-                case "CHA":
-                    PlayerCHA = AbilityPoint;
-                    break;
+    //Check of Player LVL
+    public void LVLCheck(){
+        int playerXP = 0;
+        int playerLVL = 1;
+        if(playerXP <300){
+            playerLVL =1;
+        }
+        if(playerXP >=300 || playerXP <900){
+            playerLVL =2;
+            boolean checked = false;
+            if(!checked){
+                System.out.println("You Have reached LVL 2");
+                checked = true;
             }
         }
-        System.out.println("STR,DEX,CON,INT,WIS,CHA");
-        System.out.println(PlayerSTR+","+PlayerDEX+","+PlayerCON+","+PlayerINT+PlayerWIS+PlayerCHA);
+        if (playerXP >=900 || playerXP <2700){
+            playerLVL =3;
+            boolean checked = false;
+            if(!checked){
+                System.out.println("You Have reached LVL 3");
+                checked = true;
+            }
+        }
+        if (playerXP >=2700 || playerXP <6500){
+            playerLVL =4;
+            boolean checked = false;
+            if(!checked){
+                System.out.println("You Have reached LVL 3");
+                checked = true;
+            }
+        }
+        if (playerXP >=6500 || playerXP <14000){
+            playerLVL =3;
+            boolean checked = false;
+            if(!checked){
+                System.out.println("You Have reached LVL 4");
+                checked = true;
+            }
+        }
     }
-
 }

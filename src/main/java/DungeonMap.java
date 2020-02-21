@@ -13,16 +13,12 @@ public class DungeonMap {
         System.out.println("1. Inspect");
         String Action = input.nextLine();
         Action = Action.toLowerCase();
-        switch (Action){
-            case "inspect":
-                System.out.println("The Saddlebags have been looted. Nearby lies an empty leather map case.");
-                System.out.println("After inspecting, you move forward");
-                break;
-
-            default:
-                System.out.println("Incorrect Keyword");
-                System.out.println("You move forward");
-                break;
+        if ("inspect".equals(Action)) {
+            System.out.println("The Saddlebags have been looted. Nearby lies an empty leather map case.");
+            System.out.println("After inspecting, you move forward");
+        } else {
+            System.out.println("Incorrect Keyword");
+            System.out.println("You move forward");
         }
         System.out.println("");
 

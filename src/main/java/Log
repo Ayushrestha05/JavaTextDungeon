@@ -1,9 +1,11 @@
 Feb 20, 2020
--Created Starter.java and DungeonMap.Java
+-Created Starter.java and DungeonMap.Java.
 -Created DungeonMap.java and started to add some story elements.
--Created Player.java and added some Player attributes
--Creating Player Abilities and d20 dice roll function
+-Created Player.java and added some Player attributes.
+-Creating Player Abilities and d20 dice roll function.
 
 Feb 21, 2020
--Added d6 roll function
--Created Ability Point Generator
+-Added d6 roll function.
+-Created Ability Point Generator.
+-Created Another Class named CharacterAttribute and transferred method RollAttribute from Player Class.
+-Removed AbScore class.
